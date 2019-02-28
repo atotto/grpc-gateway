@@ -17,7 +17,6 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/internal"
 	"github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/descriptor"
 	gen "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/generator"
-	swagger_options "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 )
 
 var (
@@ -86,29 +85,6 @@ func encodeSwagger(file *wrapper) (*plugin.CodeGeneratorResponse_File, error) {
 
 func (g *generator) Generate(targets []*descriptor.File) ([]*plugin.CodeGeneratorResponse_File, error) {
 	var files []*plugin.CodeGeneratorResponse_File
-	if g.reg.IsAllowMerge() {
-		var mergedTarget *descriptor.File
-		// try to find proto leader
-		for _, f := range targets {
-			if proto.HasExtension(f.Options, swagger_options.E_Openapiv2Swagger) {
-				mergedTarget = f
-				break
-			}
-		}
-		// merge protos to leader
-		for _, f := range targets {
-			if mergedTarget == nil {
-				mergedTarget = f
-			} else {
-				mergedTarget.Enums = append(mergedTarget.Enums, f.Enums...)
-				mergedTarget.Messages = append(mergedTarget.Messages, f.Messages...)
-				mergedTarget.Services = append(mergedTarget.Services, f.Services...)
-			}
-		}
-
-		targets = nil
-		targets = append(targets, mergedTarget)
-	}
 
 	var swaggers []*wrapper
 	for _, file := range targets {
