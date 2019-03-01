@@ -46,6 +46,9 @@ func mergeTargetFile(targets []*wrapper, mergeFileName string) *wrapper {
 				fileName: mergeFileName,
 				swagger:  f.swagger,
 			}
+			if mergedTarget.swagger.SecurityDefinitions == nil {
+				mergedTarget.swagger.SecurityDefinitions = swaggerSecurityDefinitionsObject{}
+			}
 		} else {
 			for k, v := range f.swagger.Definitions {
 				mergedTarget.swagger.Definitions[k] = v
@@ -97,10 +100,12 @@ func (g *generator) Generate(targets []*descriptor.File) ([]*plugin.CodeGenerato
 		if err != nil {
 			return nil, err
 		}
+
 		swaggers = append(swaggers, &wrapper{
 			fileName: file.GetName(),
 			swagger:  swagger,
 		})
+
 	}
 
 	if g.reg.IsAllowMerge() {
