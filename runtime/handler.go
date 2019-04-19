@@ -7,9 +7,10 @@ import (
 	"net/textproto"
 
 	"context"
+
+	"github.com/atotto/grpc-gateway/internal"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes/any"
-	"github.com/grpc-ecosystem/grpc-gateway/internal"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/grpclog"
 	"google.golang.org/grpc/status"
@@ -124,7 +125,7 @@ func ForwardResponseMessage(ctx context.Context, mux *ServeMux, marshaler Marsha
 
 	contentType := marshaler.ContentType()
 	// Check marshaler on run time in order to keep backwards compatability
-	// An interface param needs to be added to the ContentType() function on 
+	// An interface param needs to be added to the ContentType() function on
 	// the Marshal interface to be able to remove this check
 	if httpBodyMarshaler, ok := marshaler.(*HTTPBodyMarshaler); ok {
 		contentType = httpBodyMarshaler.ContentTypeFromMessage(resp)

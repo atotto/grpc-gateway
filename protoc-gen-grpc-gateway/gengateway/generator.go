@@ -8,11 +8,11 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/atotto/grpc-gateway/protoc-gen-grpc-gateway/descriptor"
+	gen "github.com/atotto/grpc-gateway/protoc-gen-grpc-gateway/generator"
 	"github.com/golang/glog"
 	"github.com/golang/protobuf/proto"
 	plugin "github.com/golang/protobuf/protoc-gen-go/plugin"
-	"github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/descriptor"
-	gen "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/generator"
 )
 
 var (
@@ -42,8 +42,8 @@ func New(reg *descriptor.Registry, useRequestContext bool, registerFuncSuffix, p
 		"context",
 		"io",
 		"net/http",
-		"github.com/grpc-ecosystem/grpc-gateway/runtime",
-		"github.com/grpc-ecosystem/grpc-gateway/utilities",
+		"github.com/atotto/grpc-gateway/runtime",
+		"github.com/atotto/grpc-gateway/utilities",
 		"github.com/golang/protobuf/proto",
 		"google.golang.org/grpc",
 		"google.golang.org/grpc/codes",

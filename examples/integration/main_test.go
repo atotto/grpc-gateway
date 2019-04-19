@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/atotto/grpc-gateway/examples/gateway"
+	server "github.com/atotto/grpc-gateway/examples/server"
+	gwruntime "github.com/atotto/grpc-gateway/runtime"
 	"github.com/golang/glog"
-	"github.com/grpc-ecosystem/grpc-gateway/examples/gateway"
-	server "github.com/grpc-ecosystem/grpc-gateway/examples/server"
-	gwruntime "github.com/grpc-ecosystem/grpc-gateway/runtime"
 )
 
 var (

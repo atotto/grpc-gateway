@@ -15,13 +15,13 @@ import (
 	"sync"
 	"testing"
 
+	gw "github.com/atotto/grpc-gateway/examples/proto/examplepb"
+	"github.com/atotto/grpc-gateway/examples/proto/pathenum"
+	"github.com/atotto/grpc-gateway/examples/proto/sub"
+	"github.com/atotto/grpc-gateway/runtime"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes/empty"
-	gw "github.com/grpc-ecosystem/grpc-gateway/examples/proto/examplepb"
-	"github.com/grpc-ecosystem/grpc-gateway/examples/proto/pathenum"
-	"github.com/grpc-ecosystem/grpc-gateway/examples/proto/sub"
-	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/genproto/protobuf/field_mask"
 	"google.golang.org/grpc/codes"
 )
@@ -373,11 +373,11 @@ func testABECreateBody(t *testing.T, port int) {
 			"a": {Name: "x", Amount: 1},
 			"b": {Name: "y", Amount: 2},
 		},
-		RepeatedEnumAnnotation:   []gw.NumericEnum{
+		RepeatedEnumAnnotation: []gw.NumericEnum{
 			gw.NumericEnum_ONE,
 			gw.NumericEnum_ZERO,
 		},
-		EnumValueAnnotation:      gw.NumericEnum_ONE,
+		EnumValueAnnotation: gw.NumericEnum_ONE,
 		RepeatedStringAnnotation: []string{
 			"a",
 			"b",
@@ -477,11 +477,11 @@ func testABEBulkCreate(t *testing.T, port int) {
 						Amount: 20,
 					},
 				},
-				RepeatedEnumAnnotation:   []gw.NumericEnum{
+				RepeatedEnumAnnotation: []gw.NumericEnum{
 					gw.NumericEnum_ONE,
 					gw.NumericEnum_ZERO,
 				},
-				EnumValueAnnotation:      gw.NumericEnum_ONE,
+				EnumValueAnnotation: gw.NumericEnum_ONE,
 				RepeatedStringAnnotation: []string{
 					"a",
 					"b",

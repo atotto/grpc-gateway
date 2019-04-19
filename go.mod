@@ -1,4 +1,4 @@
-module github.com/grpc-ecosystem/grpc-gateway
+module github.com/atotto/grpc-gateway
 
 require (
 	github.com/ghodss/yaml v1.0.0

@@ -6,10 +6,10 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/atotto/grpc-gateway/protoc-gen-grpc-gateway/descriptor"
+	"github.com/atotto/grpc-gateway/utilities"
 	"github.com/golang/glog"
 	generator2 "github.com/golang/protobuf/protoc-gen-go/generator"
-	"github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/descriptor"
-	"github.com/grpc-ecosystem/grpc-gateway/utilities"
 )
 
 type param struct {

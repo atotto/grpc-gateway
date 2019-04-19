@@ -4,9 +4,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/grpc-ecosystem/grpc-gateway/examples/clients/abe"
-	"github.com/grpc-ecosystem/grpc-gateway/examples/clients/echo"
-	"github.com/grpc-ecosystem/grpc-gateway/examples/clients/unannotatedecho"
+	"github.com/atotto/grpc-gateway/examples/clients/abe"
+	"github.com/atotto/grpc-gateway/examples/clients/echo"
+	"github.com/atotto/grpc-gateway/examples/clients/unannotatedecho"
 )
 
 func TestClientIntegration(t *testing.T) {

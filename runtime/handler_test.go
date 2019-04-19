@@ -8,10 +8,11 @@ import (
 	"testing"
 
 	"context"
+
+	pb "github.com/atotto/grpc-gateway/examples/proto/examplepb"
+	"github.com/atotto/grpc-gateway/internal"
+	"github.com/atotto/grpc-gateway/runtime"
 	"github.com/golang/protobuf/proto"
-	pb "github.com/grpc-ecosystem/grpc-gateway/examples/proto/examplepb"
-	"github.com/grpc-ecosystem/grpc-gateway/internal"
-	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
